@@ -1,12 +1,13 @@
 const express = require("express");
-const authRoutes = require("./authRoutes");
-const userRoutes = require("./userRoutes");
-const clothingListingRoutes = require("./clothingListingRoutes");
+
+const PortfolioDataController = require("./portfolioData");
 
 const router = express.Router();
 
-router.use("/auth", authRoutes);
-router.use("/listings", clothingListingRoutes);
-router.use("/", userRoutes);
+router.get("/getData", PortfolioDataController.getPortfolioData);
+
+// Other routes
+// router.get("/data", ...);
+// router.use("/insights", ...);
 
 module.exports = router;

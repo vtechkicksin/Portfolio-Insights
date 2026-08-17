@@ -1,0 +1,342 @@
+{
+  "client": {
+    "clientId": "CL-10001",
+    "name": "Rahul Sharma",
+    "currency": "INR"
+  },
+
+  "portfolio": {
+    "portfolioId": "PF-10001",
+    "totalInvestedValue": 1850000,
+    "currentPortfolioValue": 2117500,
+    "totalProfitLoss": 267500,
+    "totalProfitLossPercentage": 14.46,
+
+    "assetAllocation": {
+      "stocks": {
+        "investedValue": 800000,
+        "currentValue": 940000,
+        "allocationPercentage": 44.39
+      },
+      "mutualFunds": {
+        "investedValue": 450000,
+        "currentValue": 510000,
+        "allocationPercentage": 24.08
+      },
+      "crypto": {
+        "investedValue": 200000,
+        "currentValue": 225000,
+        "allocationPercentage": 10.62
+      },
+      "realEstate": {
+        "investedValue": 300000,
+        "currentValue": 320000,
+        "allocationPercentage": 15.10
+      },
+      "cash": {
+        "value": 122500,
+        "allocationPercentage": 5.78
+      }
+    },
+
+    "stocks": {
+      "totalInvestedValue": 800000,
+      "currentValue": 940000,
+      "totalProfitLoss": 140000,
+      "totalProfitLossPercentage": 17.5,
+
+      "holdings": [
+        {
+          "symbol": "MSFT",
+          "name": "Microsoft Corporation",
+          "sector": "Information Technology",
+          "industry": "Software",
+          "exchange": "NASDAQ",
+          "quantity": 12,
+          "averageBuyPrice": 8333.33,
+          "investedValue": 100000,
+          "currentPrice": 9500,
+          "currentValue": 114000,
+          "profitLoss": 14000,
+          "profitLossPercentage": 14,
+          "marketCap": 32000000000000000,
+          "marketCapCategory": "Large Cap",
+          "dayChangePercentage": 1.25
+        },
+        {
+          "symbol": "NVDA",
+          "name": "NVIDIA Corporation",
+          "sector": "Information Technology",
+          "industry": "Semiconductors",
+          "exchange": "NASDAQ",
+          "quantity": 20,
+          "averageBuyPrice": 5000,
+          "investedValue": 100000,
+          "currentPrice": 6200,
+          "currentValue": 124000,
+          "profitLoss": 24000,
+          "profitLossPercentage": 24,
+          "marketCap": 28000000000000000,
+          "marketCapCategory": "Large Cap",
+          "dayChangePercentage": 2.85
+        },
+        {
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "sector": "Information Technology",
+          "industry": "Consumer Electronics",
+          "exchange": "NASDAQ",
+          "quantity": 15,
+          "averageBuyPrice": 10000,
+          "investedValue": 150000,
+          "currentPrice": 10800,
+          "currentValue": 162000,
+          "profitLoss": 12000,
+          "profitLossPercentage": 8,
+          "marketCap": 30000000000000000,
+          "marketCapCategory": "Large Cap",
+          "dayChangePercentage": -0.65
+        },
+        {
+          "symbol": "AMZN",
+          "name": "Amazon.com Inc.",
+          "sector": "Consumer Discretionary",
+          "industry": "Internet Retail",
+          "exchange": "NASDAQ",
+          "quantity": 20,
+          "averageBuyPrice": 7500,
+          "investedValue": 150000,
+          "currentPrice": 8200,
+          "currentValue": 164000,
+          "profitLoss": 14000,
+          "profitLossPercentage": 9.33,
+          "marketCap": 22000000000000000,
+          "marketCapCategory": "Large Cap",
+          "dayChangePercentage": 1.45
+        },
+        {
+          "symbol": "TSLA",
+          "name": "Tesla Inc.",
+          "sector": "Consumer Discretionary",
+          "industry": "Automobiles",
+          "exchange": "NASDAQ",
+          "quantity": 10,
+          "averageBuyPrice": 15000,
+          "investedValue": 150000,
+          "currentPrice": 13200,
+          "currentValue": 132000,
+          "profitLoss": -18000,
+          "profitLossPercentage": -12,
+          "marketCap": 12000000000000000,
+          "marketCapCategory": "Large Cap",
+          "dayChangePercentage": -2.15
+        },
+        {
+          "symbol": "RELIANCE",
+          "name": "Reliance Industries",
+          "sector": "Energy",
+          "industry": "Oil & Gas",
+          "exchange": "NSE",
+          "quantity": 50,
+          "averageBuyPrice": 2500,
+          "investedValue": 125000,
+          "currentPrice": 2780,
+          "currentValue": 139000,
+          "profitLoss": 14000,
+          "profitLossPercentage": 11.2,
+          "marketCap": 19000000000000,
+          "marketCapCategory": "Large Cap",
+          "dayChangePercentage": 0.85
+        },
+        {
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services",
+          "sector": "Information Technology",
+          "industry": "IT Services",
+          "exchange": "NSE",
+          "quantity": 20,
+          "averageBuyPrice": 3500,
+          "investedValue": 70000,
+          "currentPrice": 4200,
+          "currentValue": 84000,
+          "profitLoss": 14000,
+          "profitLossPercentage": 20,
+          "marketCap": 15000000000000,
+          "marketCapCategory": "Large Cap",
+          "dayChangePercentage": 0.45
+        },
+        {
+          "symbol": "INFY",
+          "name": "Infosys Limited",
+          "sector": "Information Technology",
+          "industry": "IT Services",
+          "exchange": "NSE",
+          "quantity": 15,
+          "averageBuyPrice": 4000,
+          "investedValue": 60000,
+          "currentPrice": 4500,
+          "currentValue": 67500,
+          "profitLoss": 7500,
+          "profitLossPercentage": 12.5,
+          "marketCap": 7500000000000,
+          "marketCapCategory": "Large Cap",
+          "dayChangePercentage": 0.75
+        }
+      ]
+    },
+
+    "mutualFunds": {
+      "totalInvestedValue": 450000,
+      "currentValue": 510000,
+      "totalProfitLoss": 60000,
+      "totalProfitLossPercentage": 13.33,
+
+      "holdings": [
+        {
+          "schemeName": "SBI Bluechip Fund",
+          "fundHouse": "SBI Mutual Fund",
+          "category": "Large Cap",
+          "riskLevel": "Moderately High",
+          "folioNumber": "FOLIO-XXXXX",
+          "units": 1250,
+          "investedValue": 100000,
+          "averageNAV": 80,
+          "currentNAV": 92,
+          "currentValue": 115000,
+          "profitLoss": 15000,
+          "profitLossPercentage": 15
+        },
+        {
+          "schemeName": "HDFC Flexi Cap Fund",
+          "fundHouse": "HDFC Mutual Fund",
+          "category": "Flexi Cap",
+          "riskLevel": "High",
+          "folioNumber": "FOLIO-XXXXX",
+          "units": 500,
+          "investedValue": 100000,
+          "averageNAV": 200,
+          "currentNAV": 225,
+          "currentValue": 112500,
+          "profitLoss": 12500,
+          "profitLossPercentage": 12.5
+        },
+        {
+          "schemeName": "Parag Parikh Flexi Cap Fund",
+          "fundHouse": "PPFAS Mutual Fund",
+          "category": "Flexi Cap",
+          "riskLevel": "High",
+          "folioNumber": "FOLIO-XXXXX",
+          "units": 800,
+          "investedValue": 150000,
+          "averageNAV": 187.5,
+          "currentNAV": 210,
+          "currentValue": 168000,
+          "profitLoss": 18000,
+          "profitLossPercentage": 12
+        },
+        {
+          "schemeName": "HDFC Short Term Debt Fund",
+          "fundHouse": "HDFC Mutual Fund",
+          "category": "Short Duration Debt",
+          "riskLevel": "Moderate",
+          "folioNumber": "FOLIO-XXXXX",
+          "units": 600,
+          "investedValue": 100000,
+          "averageNAV": 166.67,
+          "currentNAV": 190.83,
+          "currentValue": 114500,
+          "profitLoss": 14500,
+          "profitLossPercentage": 14.5
+        }
+      ]
+    },
+
+    "crypto": {
+      "totalInvestedValue": 200000,
+      "currentValue": 225000,
+      "totalProfitLoss": 25000,
+      "totalProfitLossPercentage": 12.5,
+
+      "holdings": [
+        {
+          "symbol": "BTC",
+          "name": "Bitcoin",
+          "quantity": 0.035,
+          "averageBuyPrice": 4000000,
+          "investedValue": 140000,
+          "currentPrice": 4400000,
+          "currentValue": 154000,
+          "profitLoss": 14000,
+          "profitLossPercentage": 10,
+          "marketCap": 85000000000000000,
+          "dayChangePercentage": 2.1
+        },
+        {
+          "symbol": "ETH",
+          "name": "Ethereum",
+          "quantity": 0.5,
+          "averageBuyPrice": 120000,
+          "investedValue": 60000,
+          "currentPrice": 138000,
+          "currentValue": 69000,
+          "profitLoss": 9000,
+          "profitLossPercentage": 15,
+          "marketCap": 33000000000000,
+          "dayChangePercentage": 1.75
+        }
+      ]
+    },
+
+    "realEstate": {
+      "totalInvestedValue": 300000,
+      "currentValue": 320000,
+      "totalProfitLoss": 20000,
+      "totalProfitLossPercentage": 6.67,
+
+      "properties": [
+        {
+          "propertyId": "RE-001",
+          "type": "Residential",
+          "name": "2BHK Apartment",
+          "location": "Pune, Maharashtra",
+          "purchaseValue": 200000,
+          "currentEstimatedValue": 215000,
+          "profitLoss": 15000,
+          "profitLossPercentage": 7.5
+        },
+        {
+          "propertyId": "RE-002",
+          "type": "Commercial",
+          "name": "Commercial Office Unit",
+          "location": "Bengaluru, Karnataka",
+          "purchaseValue": 100000,
+          "currentEstimatedValue": 105000,
+          "profitLoss": 5000,
+          "profitLossPercentage": 5
+        }
+      ]
+    },
+
+    "cash": {
+      "totalValue": 122500,
+      "currency": "INR",
+      "accounts": [
+        {
+          "type": "Savings Account",
+          "institution": "HDFC Bank",
+          "balance": 75000
+        },
+        {
+          "type": "Savings Account",
+          "institution": "ICICI Bank",
+          "balance": 27500
+        },
+        {
+          "type": "Liquid Cash",
+          "institution": "Cash",
+          "balance": 20000
+        }
+      ]
+    }
+  }
+}
