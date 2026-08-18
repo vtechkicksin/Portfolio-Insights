@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const port = process.env.PORT || 3000;
@@ -7,7 +8,8 @@ const apiRoutes = require("./routes");
 
 const app = express();
 
-require("dotenv").config();
+
+// console.log("Google API key exists:", !!process.env.GOOGLE_API_KEY);
 
 app.use(
   cors({

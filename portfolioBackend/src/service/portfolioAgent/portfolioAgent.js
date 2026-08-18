@@ -1,13 +1,6 @@
 const { ChatGoogleGenerativeAI } = require("@langchain/google-genai");
-const {
-  ChatPromptTemplate,
-  MessagesPlaceholder,
-} = require("@langchain/core/prompts");
-
-const {
-  AgentExecutor,
-  createToolCallingAgent,
-} = require("langchain/agents");
+const { createAgent } = require("langchain");
+const {portfolioTool} = require("../../tools/portfolioTool");
 
 const model = new ChatGoogleGenerativeAI({
   model: "gemini-2.5-flash",
@@ -16,10 +9,11 @@ const model = new ChatGoogleGenerativeAI({
   maxOutputTokens: 2048,
 });
 
-const prompt = ChatPromptTemplate.fromMessages([
-  [
-    "system",
-    `
+const tool =[portfolioTool];
+const agent = createAgent({
+  model,
+  tools: tool,
+  systemPrompt: `
 You are a portfolio analysis AI assistant.
 
 You are given a user's portfolio data.
@@ -34,45 +28,23 @@ Rules:
 4. If the required information is not available, clearly say so.
 5. Give a concise but useful answer.
 
-Portfolio data:
-
-{portfolioData}
+Portfolio data will be provided with each request.
 `,
-  ],
+});
 
-  ["human", "{input}"],
-
-  new MessagesPlaceholder("agent_scratchpad"),
-]);
-
-let agentExecutor;
-
-// Initialize the agent
-async function initializeAgent() {
-  const agent = await createToolCallingAgent({
-    llm: model,
-    tools: [],
-    prompt,
+async function runPortfolioAgent(userPrompt) {
+  const result = await agent.invoke({
+    messages: [
+      {
+        role: "user",
+        content: userPrompt
+      },
+    ],
   });
 
-  agentExecutor = new AgentExecutor({
-    agent,
-    tools: [],
-  });
-}
+  const lastMessage = result.messages[result.messages.length - 1];
 
-// Run the portfolio agent
-async function runPortfolioAgent(userPrompt, portfolioData) {
-  if (!agentExecutor) {
-    await initializeAgent();
-  }
-
-  const result = await agentExecutor.invoke({
-    input: userPrompt,
-    portfolioData: JSON.stringify(portfolioData),
-  });
-
-  return result.output;
+  return lastMessage.content;
 }
 
 module.exports = {

@@ -1,7 +1,7 @@
 const { tool } = require("@langchain/core/tools");
 const { z } = require("zod");
 
-const portfolioData = require("./data.json");
+const portfolioData = require("../service/data.json");
 
 const portfolioTool = tool(
   async ({ query }) => {
