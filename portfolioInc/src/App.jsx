@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PortfolioDashboard from "./components/Dashboard/PortfolioDashboard";
+import PortfolioAI from "./components/Ask Ai/PortfolioAI";
 
 function App() {
   const [portfolioData, setPortfolioData] = useState(null);
@@ -35,7 +37,27 @@ function App() {
   }
 
   return (
-    <PortfolioDashboard portfolioData={portfolioData} />
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PortfolioDashboard
+              portfolioData={portfolioData}
+            />
+          }
+        />
+
+        <Route
+          path="/portfolio/ai"
+          element={
+            <PortfolioAI
+              portfolioData={portfolioData}
+            />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

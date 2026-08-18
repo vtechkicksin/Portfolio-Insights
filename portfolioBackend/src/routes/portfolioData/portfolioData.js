@@ -1,4 +1,4 @@
-const portfoliodata = require('../service/data.json')
+const portfoliodata = require('../../service/data.json')
 
 
 class PortfolioDataController {

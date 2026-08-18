@@ -12,8 +12,8 @@ import {
   YAxis,
   CartesianGrid,
 } from "recharts";
-
 import "./PortfolioDashboard.css";
+import PortfolioAI from "../Ask Ai/PortfolioAI"
 
 
 const ALLOCATION_COLORS = [
@@ -36,7 +36,7 @@ const formatNumber = (value) =>
 
 export default function PortfolioDashboard({ portfolioData }) {
   const [activeTab, setActiveTab] = useState("stocks");
-
+  const [showAI, setShowAI] = useState(false);
   // IMPORTANT
   const { client, portfolio } = portfolioData;
 
@@ -71,7 +71,9 @@ export default function PortfolioDashboard({ portfolioData }) {
     profitLoss: stock.profitLoss,
   }));
 
-  return (
+  return showAI ? (<PortfolioAI
+    portfolioData={portfolioData}
+  />):(
     <div className="portfolio-dashboard">
 
       {/* Header */}
@@ -88,7 +90,12 @@ export default function PortfolioDashboard({ portfolioData }) {
 
         <div className="header-actions">
           <button>Refresh</button>
-          <button className="primary-btn">Ask AI</button>
+          <button
+            className="primary-btn"
+            onClick={() => setShowAI(true)}
+          >
+            Ask AI
+          </button>
         </div>
       </div>
 
@@ -115,7 +122,7 @@ export default function PortfolioDashboard({ portfolioData }) {
         <SummaryCard
           title="Asset Classes"
           value="5"
-          subtitle="Stocks, MF, Crypto, RE & Cash"
+          subtitle="Stocks, MF, Crypto, Real Estate & Cash"
         />
 
       </div>

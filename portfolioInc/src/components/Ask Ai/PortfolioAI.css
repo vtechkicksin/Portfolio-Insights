@@ -1,0 +1,40 @@
+.portfolio-ai-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc;
+}
+
+.ai-search-container {
+  width: 700px;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.ai-search-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 14px;
+  font-size: 16px;
+}
+
+.ai-search-container button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 0 24px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ai-search-container button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
