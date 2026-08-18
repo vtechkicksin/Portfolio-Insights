@@ -9,9 +9,9 @@ class PortfolioInsightsController {
       console.log("Request body:", userPrompt);
 
       const result = await runPortfolioAgent(userPrompt);
-
+        console.log("Portfolio insights generated:", result);
       return res.status(200).json({
-        answer: result,
+        result,
       });
     } catch (error) {
       console.error(error);

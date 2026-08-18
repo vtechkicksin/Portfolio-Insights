@@ -1,6 +1,9 @@
 const { ChatGoogleGenerativeAI } = require("@langchain/google-genai");
-const { createAgent } = require("langchain");
-const {portfolioTool} = require("../../tools/portfolioTool");
+const { createAgent, toolStrategy } = require("langchain");
+const portfolioTool = require("../../tools/portfolioTool");
+const { z } = require("zod");
+const { responseSchema } = require("../../utils/responseSchema");
+
 
 const model = new ChatGoogleGenerativeAI({
   model: "gemini-2.5-flash",
@@ -30,6 +33,7 @@ Rules:
 
 Portfolio data will be provided with each request.
 `,
+responseFormat: toolStrategy(responseSchema),
 });
 
 async function runPortfolioAgent(userPrompt) {
@@ -41,10 +45,8 @@ async function runPortfolioAgent(userPrompt) {
       },
     ],
   });
-
-  const lastMessage = result.messages[result.messages.length - 1];
-
-  return lastMessage.content;
+  console.log("Agent result:", result);
+  return result.structuredResponse;
 }
 
 module.exports = {
