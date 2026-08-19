@@ -6,10 +6,10 @@ const { responseSchema } = require("../../utils/responseSchema");
 
 
 const model = new ChatGoogleGenerativeAI({
-  model: "gemini-2.5-flash",
+  model: "gemini-3.6-flash",
   apiKey: process.env.GOOGLE_API_KEY,
   temperature: 0,
-  maxOutputTokens: 2048,
+  maxOutputTokens: 4096,
 });
 
 const tool =[portfolioTool];

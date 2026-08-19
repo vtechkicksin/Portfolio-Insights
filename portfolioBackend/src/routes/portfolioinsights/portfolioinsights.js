@@ -5,11 +5,11 @@ class PortfolioInsightsController {
     try {
       const userPrompt = req.body.prompt;
 
-      console.log("Request body:", userPrompt);
-
       const result = await runPortfolioAgent(userPrompt);
+      if (!result) {
+        throw new Error("Agent returned no result");
+       }
 
-      console.log("Portfolio insights generated:", result);
 
       const structuredResponse = result;
 
@@ -33,7 +33,6 @@ class PortfolioInsightsController {
         });
       }
 
-      console.log("data is >>>>>>", data);
 
       return res.status(200).json({
         success: true,
@@ -42,7 +41,15 @@ class PortfolioInsightsController {
 
     } catch (error) {
       console.error("Portfolio insights error:", error);
-
+        if (error?.status === 429 || error?.code === 429) {
+            return res.status(429).json({
+            success: false,
+            errorType: "RATE_LIMIT",
+            message:
+                "AI usage limit has been reached. Please try again shortly.",
+            retryAfter: 51,
+            });
+        }
       return res.status(500).json({
         success: false,
         message: "Failed to generate portfolio insights",

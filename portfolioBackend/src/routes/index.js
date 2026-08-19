@@ -8,8 +8,4 @@ router.get("/getData", PortfolioDataController.getPortfolioData);
 router.post("/insights", PortfolioInsightsController.getInsights);
 
 
-// Other routes
-// router.get("/data", ...);
-
-
 module.exports = router;

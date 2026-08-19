@@ -9,8 +9,6 @@ const apiRoutes = require("./routes");
 const app = express();
 
 
-// console.log("Google API key exists:", !!process.env.GOOGLE_API_KEY);
-
 app.use(
   cors({
     origin: "http://localhost:5173",
