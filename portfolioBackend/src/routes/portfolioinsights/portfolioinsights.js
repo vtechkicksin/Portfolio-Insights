@@ -1,4 +1,3 @@
-// const portfolioData = require("../../service/data.json");
 const { runPortfolioAgent } = require("../../service/portfolioAgent/portfolioAgent");
 
 class PortfolioInsightsController {
@@ -9,36 +8,43 @@ class PortfolioInsightsController {
       console.log("Request body:", userPrompt);
 
       const result = await runPortfolioAgent(userPrompt);
-        console.log("Portfolio insights generated:", result);
 
-      const structuredResponse = result?.structuredResponse;
+      console.log("Portfolio insights generated:", result);
 
-        if (!structuredResponse) {
+      const structuredResponse = result;
+
+      if (!structuredResponse) {
         return res.status(500).json({
-        success: false,
-        error: "Agent did not return a structured response",
-      });
-    }
+          success: false,
+          error: "Agent did not return a structured response",
+        });
+      }
 
-    if (!structuredResponse.success) {
-      return res.status(400).json(structuredResponse);
-    }
+      if (!structuredResponse.success) {
+        return res.status(400).json(structuredResponse);
+      }
 
-    const data = structuredResponse.data;
+      const data = structuredResponse.data;
 
-    if (!data) {
-      return res.status(500).json({
-        success: false,
-        error: "Structured response does not contain data",
-      });
-    }
+      if (!data) {
+        return res.status(500).json({
+          success: false,
+          error: "Structured response does not contain data",
+        });
+      }
+
+      console.log("data is >>>>>>", data);
+
       return res.status(200).json({
-        result,
+        success: true,
+        data,
       });
+
     } catch (error) {
-      console.error(error);
+      console.error("Portfolio insights error:", error);
 
       return res.status(500).json({
+        success: false,
         message: "Failed to generate portfolio insights",
         error: error.message,
       });
