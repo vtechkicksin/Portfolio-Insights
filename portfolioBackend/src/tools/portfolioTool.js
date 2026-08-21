@@ -7,10 +7,6 @@ const portfolioTool = tool(
   async ({ query }) => {
     console.log("Portfolio tool called with:", query);
 
-    // For now, return the complete portfolio.
-    // Later we can make this smarter and return only
-    // the relevant portion of the portfolio.
-
     return JSON.stringify(portfolioData);
   },
   {
