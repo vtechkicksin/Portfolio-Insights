@@ -3,7 +3,16 @@ const { runPortfolioAgent } = require("../../service/portfolioAgent/portfolioAge
 class PortfolioInsightsController {
   static async getInsights(req, res) {
     try {
-      const userPrompt = req.body.prompt;
+      const { prompt } = req.body;
+
+      if (typeof prompt !== "string" || prompt.trim().length === 0) {
+        return res.status(400).json({
+          success: false,
+          message: "Prompt must be a non-empty string",
+        });
+      }
+
+      const userPrompt = prompt.trim();
 
       const result = await runPortfolioAgent(userPrompt);
       if (!result) {
