@@ -4,7 +4,6 @@ class PortfolioInsightsController {
   static async getInsights(req, res) {
     try {
       const { prompt } = req.body;
-
       if (typeof prompt !== "string" || prompt.trim().length === 0) {
         return res.status(400).json({
           success: false,
@@ -17,52 +16,40 @@ class PortfolioInsightsController {
       const result = await runPortfolioAgent(userPrompt);
       if (!result) {
         throw new Error("Agent returned no result");
-       }
-
-
-      const structuredResponse = result;
-
-      if (!structuredResponse) {
-        return res.status(500).json({
-          success: false,
-          error: "Agent did not return a structured response",
-        });
       }
 
-      if (!structuredResponse.success) {
-        return res.status(400).json(structuredResponse);
+      if (!result.success) {
+        return res.status(400).json(result);
       }
 
-      const data = structuredResponse.data;
-
-      if (!data) {
-        return res.status(500).json({
-          success: false,
-          error: "Structured response does not contain data",
-        });
+      if (!result.data) {
+        throw new Error(
+          "Agent returned a successful response without data"
+        );
       }
-
 
       return res.status(200).json({
         success: true,
-        data,
+        data: result.data,
       });
 
     } catch (error) {
       console.error("Portfolio insights error:", error);
-        if (error?.status === 429 || error?.code === 429) {
-            return res.status(429).json({
-            success: false,
-            errorType: "RATE_LIMIT",
-            message:
-                "AI usage limit has been reached. Please try again shortly.",
-            retryAfter: 51,
-            });
-        }
+
+      if (error?.status === 429 || error?.code === 429) {
+        return res.status(429).json({
+          success: false,
+          errorType: "RATE_LIMIT",
+          message:
+            "AI usage limit has been reached. Please try again shortly.",
+          retryAfter: 51,
+        });
+      }
+
       return res.status(500).json({
         success: false,
+        errorType: "INTERNAL_SERVER_ERROR",
         message: "Failed to generate portfolio insights",
-        error: error.message,
       });
     }
   }
